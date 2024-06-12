@@ -1,0 +1,37 @@
+.loser {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  left: 0;
+  top: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loser .title {
+  margin-bottom: 1.5rem;
+}
+
+.submit__wrapper {
+  position: relative;
+  width: 364px;
+  max-width: 100%;
+}
+
+.submit__wrapper .btn {
+  width: 100%;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+}

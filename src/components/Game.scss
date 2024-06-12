@@ -1,0 +1,142 @@
+@import '../styles/sass-includes';
+
+.game {
+  text-align: center;
+  padding: 0 40px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-size: 46px;
+  color: $white;
+}
+
+.board {
+  margin: 0 auto;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  padding: 0 15px 15px;
+  background: $darkgrey;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-sizing: content-box;
+}
+
+.flash-bang {
+  position: absolute;
+  margin: 0 auto;
+  clear: both;
+  overflow: hidden;
+  padding: 0 15px 15px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  border-right: 15px solid $darkgrey;
+  border-left: 15px solid $darkgrey;
+  border-bottom: 15px solid $darkgrey;
+
+  pointer-events: none;
+  width: 71%;
+  height: 100%;
+  background: $white;
+  opacity: 0;
+
+  animation: flash linear .15s;
+  animation-iteration-count: 2;
+}
+
+@keyframes flash {
+  0% { opacity: .65; }
+  50% { opacity: .1; }
+  100% { opacity: .65; }
+}
+
+.block {
+  border: 1px solid grey;
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  box-sizing: border-box;
+}
+
+@import '../styles/sass-includes';
+
+.filled {
+  background: grey;
+  border-color: $white;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    flex-direction: column;
+  }
+}
+
+.queue {
+  width: auto;
+  padding: 15px 15px 15px 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: $darkgrey;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: none;
+  }
+
+  h5 {
+    margin-bottom: 10px;
+  }
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+  text-align: right;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+    width: 100%;
+    display: block;
+  }
+}
+
+.status > span {
+  margin-bottom: 10px;
+  display: block;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: inline-block;
+    margin: 0 20px 10px;
+  }
+}
+
+.audio {
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+}

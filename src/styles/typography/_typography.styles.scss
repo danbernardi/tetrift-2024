@@ -1,0 +1,108 @@
+// default font scaling
+html {
+  @include font(regular);
+  font-family: '8bit_wonder', sans-serif;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+.typ--default {    
+  @include font-size(body);
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 1.3rem;
+  }
+}
+
+h1 {
+  font-size: 5em;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 3em;
+  }
+}
+
+h2 {
+  font-size: 2.5em;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 1.5em;
+  }
+}
+
+.typ--caps { text-transform: uppercase; }
+
+.typ--titlecase { text-transform: capitalize; }
+
+.typ--smallcaps {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+.typ--nowrap {
+  white-space: nowrap;
+}
+
+// font modifiers
+a {
+  text-decoration: none;
+  color: $redshift;
+}
+
+a:hover {
+  color: #888;
+}
+
+em {
+  color: $blue;
+}
+
+// basic element styles
+strong { @include font(semibold); }
+p { margin-bottom: 1rem; }
+a { text-decoration: none; }
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+sub {
+  @include font(regular);
+  font-size: 0.6em;
+  padding-left: 0.3rem;
+}
+
+blockquote {
+  padding-left: 3rem;
+  border-left: 0.1rem solid $black;
+}
+
+// Text decoration styles
+.typ--underline { text-decoration: underline; }
+.typ--actionable { cursor: pointer; }
+
+.typ--truncate {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+// font alignment
+.typ--center {
+  text-align: center;
+}
+
+.typ--left {
+  text-align: left;
+}
+
+.typ--right {
+  text-align: right;
+}

@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Game from './components/Game';
+import Splash from './components/Splash';
+import './styles/core.scss';
 
-function App() {
+const App = () => {
+  const [startGame, setStartGame] = useState(false);
+  const [options, setOptions] = useState({
+    style: 'classic',
+    difficulty: 0,
+    music: 1
+  });
+
+  const setOption = (newOption) => {
+    const optionsObj = { ...options };
+    setOptions(Object.assign(optionsObj, newOption));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      { startGame
+        ? (
+          <Game
+            options={ options }
+            goToMainMenu={ () => setStartGame(false) }
+          />
+        ) : (
+          <Splash
+            activeOptions={ options }
+            setOption={ setOption }
+            onGameStart={ () => setStartGame(true) }
+          />
+        )
+      }
     </div>
   );
 }

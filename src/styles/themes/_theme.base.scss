@@ -1,0 +1,146 @@
+/* classic theme */
+.style--classic .block.filled {
+  border-top: 0;
+  border-left: 0;
+  border-right: 5px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 5px solid rgba(0, 0, 0, 0.6);
+}
+
+.style--classic .block.filled:before {
+  content: '';
+  width: 14.285714%;
+  height: 14.285714%;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  display: block;
+}
+
+/* modern theme */
+.style--modern .block.filled {
+  box-shadow: inset 0 2px 1px 0px rgba(255,255,255,0.2), inset 0 -2px 1px 0 rgba(0,0,0,0.15);
+}
+
+
+/* redshift theme */
+.style--redshift .block {
+  border-radius: 50%;
+}
+
+.style--redshift .block.filled {
+  box-shadow: inset 0 2px 1px 0px rgba(255,255,255,0.2), inset 0 -2px 1px 0 rgba(0,0,0,0.15);
+}
+
+
+.game { background-image: url('/assets/escheresque_ste_@2X.png'); }
+
+/*.game.meat { background-image: url('../../assets/pixelbg.png'); }*/
+.game.meat {
+  .block.line { background-color: #AB4E2F; }
+  .block.square { background-color: #9E392B; }
+  .block.lShape { background-color: #872726; }
+  .block.jShape { background-color: #6A1D34; }
+  .block.tShape { background-color: #471530; }
+  .block.zShape { background-color: #BC6F55; }
+  .block.sShape { background-color: #3A0833; }
+}
+
+/*.game.desert { background-image: url('../../assets/pixelbg.png'); }*/
+.game.desert {
+  .block.line { background-color: #A2264E; }
+  .block.square { background-color: #483D89; }
+  .block.lShape { background-color: #7A2D46; }
+  .block.jShape { background-color: #A7404E; }
+  .block.tShape { background-color: #B9535B; }
+  .block.zShape { background-color: #FCA63D; }
+  .block.sShape { background-color: #CF852B; }
+}
+
+/*.game.princess { background-image: url('../../assets/pixelbg.png'); }*/
+.game.princess {
+  .block.line { background-color: #ED3D92; }
+  .block.square { background-color: #C83E81; }
+  .block.lShape { background-color: #D777A4; }
+  .block.jShape { background-color: #F1C4D9; }
+  .block.tShape { background-color: #9ED0D7; }
+  .block.zShape { background-color: #307079; }
+  .block.sShape { background-color: #E7D8C5; }
+}
+
+/*.game.chocolate { background-image: url('../../assets/pixelbg.png'); }*/
+.game.chocolate {
+  .block.line { background-color: #EFD9CC; }
+  .block.square { background-color: #CF9371; }
+  .block.lShape { background-color: #E1B992; }
+  .block.jShape { background-color: #D6A77A; }
+  .block.tShape { background-color: #7A4A2A; }
+  .block.zShape { background-color: #906147; }
+  .block.sShape { background-color: #5B3014; }
+}
+
+/*.game.dinosaur { background-image: url('../../assets/pixelbg.png'); }*/
+.game.dinosaur {
+  .block.line { background-color: #475D7A; }
+  .block.square { background-color: #2C3D54; }
+  .block.lShape { background-color: #2C5B61; }
+  .block.jShape { background-color: #247065; }
+  .block.tShape { background-color: #5FA65F; }
+  .block.zShape { background-color: #FFEC97; }
+  .block.sShape { background-color: #F9EFC0; }
+}
+
+/*.game.coldfront { background-image: url('../../assets/pixelbg.png'); }*/
+.game.coldfront {
+  .block.line { background-color: #2B3D41; }
+  .block.square { background-color: #011D29; }
+  .block.lShape { background-color: #003440; }
+  .block.jShape { background-color: #246475; }
+  .block.tShape { background-color: #93B8C2; }
+  .block.zShape { background-color: #DBEFF5; }
+  .block.sShape { background-color: #F0F7F9; }
+}
+
+/*.game.rocketship { background-image: url('../../assets/pixelbg.png'); }*/
+.game.rocketship {
+  .block.line { background-color: #6A7988; }
+  .block.square { background-color: #2D3E50; }
+  .block.lShape { background-color: #E74C3C; }
+  .block.jShape { background-color: #ECF0F1; }
+  .block.tShape { background-color: #3598DC; }
+  .block.zShape { background-color: #2A80B9; }
+  .block.sShape { background-color: #0E4C75; }
+}
+
+/*.game.volcano { background-image: url('../../assets/pixelbg.png'); }*/
+.game.volcano {
+  .block.line { background-color: #979FA0; }
+  .block.square { background-color: #292F30; }
+  .block.lShape { background-color: #FADF4C; }
+  .block.jShape { background-color: #F4B942; }
+  .block.tShape { background-color: #FF7631; }
+  .block.zShape { background-color: #ED6E42; }
+  .block.sShape { background-color: #AB4714; }
+}
+
+/*.game.sherbert { background-image: url('../../assets/pixelbg.png'); }*/
+.game.sherbert {
+  .block.line { background-color: #89E6E2; }
+  .block.square { background-color: #FF80AB; }
+  .block.lShape { background-color: #A980F5; }
+  .block.jShape { background-color: #65CBFF; }
+  .block.tShape { background-color: #5CE885; }
+  .block.zShape { background-color: #F5FF71; }
+  .block.sShape { background-color: #ED9074; }
+}
+
+/*.game.motherland { background-image: url('../../assets/pixelbg.png'); }*/
+.game.motherland {
+  .block.line { background-color: #C2BEBE; }
+  .block.square { background-color: #AE0219; }
+  .block.lShape { background-color: #4A4A4A; }
+  .block.jShape { background-color: #FFD61F; }
+  .block.tShape { background-color: #117F9F; }
+  .block.zShape { background-color: #FFFFFF; }
+  .block.sShape { background-color: #244894; }
+}

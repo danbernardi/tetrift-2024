@@ -1,0 +1,58 @@
+@import '../styles/sass-includes';
+
+.splash {
+  width: 100vw;
+  height: 100vh;
+  background: $black;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.splash > div {
+  margin-bottom: 3rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    margin-bottom: 6rem;
+  }
+}
+
+.title {
+  margin-bottom: 5rem;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.options {
+  margin-bottom: 40px;
+}
+
+.options li {
+  display: inline-block;
+  margin: 0 1rem;
+  cursor: pointer;
+  font-size: 0.75em;
+}
+
+.options li:hover {
+  color: $darkestgrey;
+}
+
+.options li.selected {
+  color: $redshift;
+}
+
+.footer {
+  position: absolute;
+  bottom: 3rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 11px;
+    bottom: 8rem;
+  }
+}

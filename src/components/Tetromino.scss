@@ -1,0 +1,51 @@
+.tetromino {
+  text-align: center;
+}
+
+.piece {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.block {
+  float: left;
+  box-sizing: border-box;
+}
+
+
+.block.empty {
+  background: black;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.block.filled {
+  border-color: rgba(0, 0, 0, 0.4);
+  background: #eee;
+  position: relative;
+}
+
+.block.border {
+  opacity: 0;
+}
+
+.block.line { background-color: #446FE3; }
+.block.square { background-color: #EF7E18; }
+.block.lShape { background-color: #F8D517; }
+.block.jShape { background-color: #2BAF98; }
+.block.tShape { background-color: #E02386; }
+.block.zShape { background-color: #E4292E; }
+.block.sShape { background-color: #5BAD2B; }
+
+
+.block.destroyed {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+
+/* For Dev Testing */
+.display {
+  width: 15rem;
+  text-align: center;
+  margin: 2rem auto;
+}
