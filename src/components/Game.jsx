@@ -29,7 +29,6 @@ let boardArr = generateGameBoard(boardDimensions);
 let completedLines = 0;
 let currentScore = 0;
 let level = 0;
-let paused = false;
 
 function Game ({ options, goToMainMenu }) {
   const [currentTime, setCurrentTime] = useState(0);
@@ -51,15 +50,6 @@ function Game ({ options, goToMainMenu }) {
       document.removeEventListener('keydown', handleKeyDown);
     }
   }, []);
-
-  /*****************************
-  * Game Loop Functions
-  *****************************/
-  // const togglePause = () => {
-  //   paused = !paused
-  //   const updatePause = paused ? stopLoop : startLoop;
-  //   updatePause();
-  // }
 
   const gameLost = () => {
     return boardArr[0].reduce((a, b) => a + b) > 2;
