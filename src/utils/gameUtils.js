@@ -114,7 +114,7 @@ export function generateRandomPiece (shapes) {
     rotation,
     currentPosition: rotation,
     currentShape,
-    piecePos: { x: 4, y: 0 }
+    piecePos: { x: 5, y: 0 }
   };
 }
 
@@ -180,7 +180,7 @@ export const calculateLevel = (linesCleared) => {
   let level = 0;
 
   if (linesCleared <= 90) {
-    level = Math.floor(linesCleared / 5);
+    level = Math.floor(linesCleared / 10);
   } else {
     level = Math.floor((linesCleared - 90) / 20) + 9;
   }
