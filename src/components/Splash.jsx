@@ -2,7 +2,7 @@ import './Splash.scss';
 
 const styles = ['classic', 'modern'];
 const difficulties = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const musicOptions = [1, 2, 3, 4, 5, 'off'];
+const musicOptions = ['on', 'off'];
 
 const Splash = ({ onGameStart, setOption, activeOptions }) => {
   return (
@@ -53,38 +53,6 @@ const Splash = ({ onGameStart, setOption, activeOptions }) => {
           className="btn"
           onClick={ () => onGameStart() }
         >Start game</span>
-      </div>
-
-      <div className="audio">
-        { activeOptions.music === 1 &&
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require('../assets/music/tetris-gameboy-02.mp3') } type="audio/mpeg" />
-          </audio>
-        }
-
-        { activeOptions.music === 2 &&
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require('../assets/music/tetris-gameboy-01.mp3') } type="audio/mpeg" />
-          </audio>
-        }
-
-        { activeOptions.music === 3 &&
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require('../assets/music/tetris-gameboy-03.mp3') } type="audio/mpeg" />
-          </audio>
-        }
-
-        { activeOptions.music === 4 &&
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require('../assets/music/tetris-gameboy-04.mp3') } type="audio/mpeg" />
-          </audio>
-        }
-
-        { activeOptions.music === 5 &&
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require('../assets/music/tetris-gameboy-05.mp3') } type="audio/mpeg" />
-          </audio>
-        }
       </div>
 
       <footer className="footer">

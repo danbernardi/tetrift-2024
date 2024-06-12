@@ -8,7 +8,7 @@ const App = () => {
   const [options, setOptions] = useState({
     style: 'classic',
     difficulty: 0,
-    music: 1
+    music: 'on'
   });
 
   const setOption = (newOption) => {

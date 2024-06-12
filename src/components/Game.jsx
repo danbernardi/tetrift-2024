@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import ScoreBoard from './ScoreBoard';
 import GameBoard from './GameBoard';
@@ -27,17 +27,17 @@ let currentPieceConfig = generateRandomPiece(pieces);
 let pieceQueue = new Array(5).fill(null).map(() => generateRandomPiece(pieces));
 let boardArr = generateGameBoard(boardDimensions);
 let completedLines = 0;
-let flash = false;
 let currentScore = 0;
+let level = 0;
 let paused = false;
 
 function Game ({ options, goToMainMenu }) {
   const [currentTime, setCurrentTime] = useState(0);
 
   const [showScoreboard, setShowScoreboard] = useState();
-  const [level, setLevel] = useState(options.difficulty);
   const [gameSpeed, setGameSpeed] = useState(calculateLevelSpeed(options?.difficulty));
   const [isWinner, setIsWinner] = useState(false);
+  const gameboardRef = useRef(null);
 
   const [time, setTime] = useState(0);
   const { startLoop, stopLoop } = useFrameLoop((time) => {setTime(time)});
@@ -45,6 +45,7 @@ function Game ({ options, goToMainMenu }) {
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
+    level = options.difficulty;
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -80,7 +81,7 @@ function Game ({ options, goToMainMenu }) {
     boardArr = generateGameBoard(boardDimensions);
     currentScore = 0;
     completedLines = 0;
-    setLevel(0);
+    level = 0;
     setGameSpeed(50);
     startLoop();
     setIsWinner(false);
@@ -97,15 +98,21 @@ function Game ({ options, goToMainMenu }) {
    * @param  {Nubmer} level Level number
    */
   const triggerLevelChange = (newLevel) => {
-    setLevel(newLevel);
+    level = newLevel;
     setGameSpeed(calculateLevelSpeed(newLevel));
 
-    flash = true;
-    const flashTimeout = setTimeout(() => {
-      flash = false;
-    }, 1000);
+    if (gameboardRef.current) {
+      let flashBang = document.createElement('div');
+      flashBang.classList.add('flash-bang');
+      gameboardRef.current.append(flashBang);
 
-    clearTimeout(flashTimeout);
+      const flashTimeout = setTimeout(() => {
+        flashBang.remove();
+      }, 1000);
+
+      clearTimeout(flashTimeout);
+    }
+
   }
 
   const move = (dir) => {
@@ -193,8 +200,7 @@ function Game ({ options, goToMainMenu }) {
     // Update score if line complete
     if (lineCount) {
       removeRowsWithAnimation(rowsToRemove);
-      const newScore = currentScore + caclulateTurnScore(level, lineCount);
-      currentScore = newScore;
+      currentScore = currentScore + caclulateTurnScore(level, lineCount);
     }
 
     const thisLevel = calculateLevel(completedLines);
@@ -255,22 +261,19 @@ function Game ({ options, goToMainMenu }) {
 
       <div className="main">
         <div className="status">
-          <span>Lines { completedLines }</span>
-          <span>Level { level + 1 }</span>
+          <span className="status__lines">Lines { completedLines }</span>
+          <span className="status__level">Level { level + 1 }</span>
         </div>
-        <GameBoard
-          board={boardArr}
-          piece={currentPieceConfig.piece}
-          piecePos={currentPieceConfig.piecePos}
-          currentShape={currentPieceConfig.currentShape}
-          options={options}
-        />
 
-        { flash ?
-          <div className="flash-bang" />
-          : null
-        }
-        { flash && <div className="flash-bang" /> }
+        <div className="layout--relative" ref={gameboardRef}>
+          <GameBoard
+            board={boardArr}
+            piece={currentPieceConfig.piece}
+            piecePos={currentPieceConfig.piecePos}
+            currentShape={currentPieceConfig.currentShape}
+            options={options}
+          />
+        </div>
 
         <div className="queue">
           <h5>Next</h5>
@@ -296,11 +299,37 @@ function Game ({ options, goToMainMenu }) {
         />
       }
 
-      { options.music !== 'off' &&
+      { options.music === 'on' &&
         <div className="audio">
-          <audio autoPlay={ true } controls={ true } loop={ true }>
-            <source src={ require(`../assets/music/tetris-gameboy-0${options.music}.mp3`) } type="audio/mpeg" />
-          </audio>
+          { [1, 6].includes(level + 1) &&
+            <audio autoPlay={ true } controls={ true } loop={ true }>
+              <source src={ require('../assets/music/tetris-gameboy-02.mp3') } type="audio/mpeg" />
+            </audio>
+          }
+
+          { [2, 7].includes(level + 1) &&
+            <audio autoPlay={ true } controls={ true } loop={ true }>
+              <source src={ require('../assets/music/tetris-gameboy-01.mp3') } type="audio/mpeg" />
+            </audio>
+          }
+
+          { [3, 8].includes(level + 1) &&
+            <audio autoPlay={ true } controls={ true } loop={ true }>
+              <source src={ require('../assets/music/tetris-gameboy-03.mp3') } type="audio/mpeg" />
+            </audio>
+          }
+
+          { [4, 9].includes(level + 1) &&
+            <audio autoPlay={ true } controls={ true } loop={ true }>
+              <source src={ require('../assets/music/tetris-gameboy-04.mp3') } type="audio/mpeg" />
+            </audio>
+          }
+
+          { [5, 10].includes(level + 1) &&
+            <audio autoPlay={ true } controls={ true } loop={ true }>
+              <source src={ require('../assets/music/tetris-gameboy-05.mp3') } type="audio/mpeg" />
+            </audio>
+          }
         </div>
       }
     </div>

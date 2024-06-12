@@ -28,6 +28,10 @@
 
 .flash-bang {
   position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   clear: both;
   overflow: hidden;
@@ -41,10 +45,9 @@
   border-bottom: 15px solid $darkgrey;
 
   pointer-events: none;
-  width: 71%;
-  height: 100%;
   background: $white;
   opacity: 0;
+
 
   animation: flash linear .15s;
   animation-iteration-count: 2;
