@@ -180,7 +180,7 @@ export const calculateLevel = (linesCleared) => {
   let level = 0;
 
   if (linesCleared <= 90) {
-    level = Math.floor(linesCleared / 10);
+    level = Math.floor(linesCleared / 7);
   } else {
     level = Math.floor((linesCleared - 90) / 20) + 9;
   }

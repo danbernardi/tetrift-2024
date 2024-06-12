@@ -27,6 +27,12 @@ const ScoreBoard = ({ score, onRestart, onMainMenu, isWinner }) => {
            onRestart={onRestart}
         />
       }
+
+      <div className="audio">
+        <audio autoPlay={ true }>
+          <source src={ require('../assets/music/gameover.mp3') } type="audio/mpeg" />
+        </audio>
+      </div>
     </div>
   );
 };

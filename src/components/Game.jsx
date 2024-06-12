@@ -289,35 +289,41 @@ function Game ({ options, goToMainMenu }) {
         />
       }
 
-      { options.music === 'on' &&
+      { options.music === 'on' && !showScoreboard && 
         <div className="audio">
-          { [1, 6].includes(level + 1) &&
-            <audio autoPlay={ true } controls={ true } loop={ true }>
-              <source src={ require('../assets/music/tetris-gameboy-02.mp3') } type="audio/mpeg" />
+          { [1, 7].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level1.mp3') } type="audio/mpeg" />
             </audio>
           }
 
-          { [2, 7].includes(level + 1) &&
-            <audio autoPlay={ true } controls={ true } loop={ true }>
-              <source src={ require('../assets/music/tetris-gameboy-01.mp3') } type="audio/mpeg" />
+          { [2, 8].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level2.mp3') } type="audio/mpeg" />
             </audio>
           }
 
-          { [3, 8].includes(level + 1) &&
-            <audio autoPlay={ true } controls={ true } loop={ true }>
-              <source src={ require('../assets/music/tetris-gameboy-03.mp3') } type="audio/mpeg" />
+          { [3, 9].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level3.mp3') } type="audio/mpeg" />
             </audio>
           }
 
-          { [4, 9].includes(level + 1) &&
-            <audio autoPlay={ true } controls={ true } loop={ true }>
-              <source src={ require('../assets/music/tetris-gameboy-04.mp3') } type="audio/mpeg" />
+          { [4, 10].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level4.mp3') } type="audio/mpeg" />
             </audio>
           }
 
-          { [5, 10].includes(level + 1) &&
-            <audio autoPlay={ true } controls={ true } loop={ true }>
-              <source src={ require('../assets/music/tetris-gameboy-05.mp3') } type="audio/mpeg" />
+          { [5, 11].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level5.mp3') } type="audio/mpeg" />
+            </audio>
+          }
+
+          { [6, 12].includes(level + 1) &&
+            <audio autoPlay={ true } loop={ true }>
+              <source src={ require('../assets/music/level6.mp3') } type="audio/mpeg" />
             </audio>
           }
         </div>
