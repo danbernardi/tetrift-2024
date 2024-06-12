@@ -4,10 +4,16 @@ A tetris clone build in react.
 https://tetrift.vercel.app/
 
 Use your keyboard to play:
+
 up - rotate
+
 left - left
+
 right - right
+
 down - down
+
+Try to get the high score!
 
 
 
