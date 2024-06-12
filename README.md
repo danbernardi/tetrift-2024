@@ -1,3 +1,16 @@
+# Tetrift
+A tetris clone build in react.
+
+https://tetrift.vercel.app/
+
+Use your keyboard to play:
+up - rotate
+left - left
+right - right
+down - down
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
